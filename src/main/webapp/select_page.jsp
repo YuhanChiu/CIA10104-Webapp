@@ -52,7 +52,7 @@
 <ul>
   <li><a href='listAllRoomTypePhoto1_byDAO.jsp'>List</a> all RoomTypePhoto    <h4>(byDAO).         </h4></li>
   <li><a href='roomtypephoto.do?action=getAll'> List</a> all RoomTypePhoto    <h4>(getFromSession).</h4> <br><br><br></li>
-  
+<!--   動態是寫在這邊嗎? -->
   <li>
     <FORM METHOD="post" ACTION="roomtypephoto.do" >
         <b>輸入房型圖片編號 (如1):</b>

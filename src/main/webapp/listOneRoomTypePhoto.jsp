@@ -3,7 +3,7 @@
 <%-- 此頁暫練習採用 Script 的寫法取值 --%>
 
 <%
-	RoomTypePhotoVO roomTypePhotoVO = (RoomTypePhotoVO)request.getAttribute("roomTypePhoto"); //RoomTypePhotoServlet.java(Concroller), 存入req的empVO物件
+	RoomTypePhotoVO roomTypePhotoVO = (RoomTypePhotoVO)request.getAttribute("roomTypePhotoVO"); //RoomTypePhotoServlet.java(Concroller), 存入req的empVO物件
 %>
 
 <html>
@@ -63,10 +63,11 @@
 		<th>上下架狀態</th>
 	</tr>
 	<tr>
-		<td><%=roomTypePhotoVO.getRoomTypePhotoId()%></td>
-		<td><%=roomTypePhotoVO.getRoomTypeId()%></td>
-		<td><%=roomTypePhotoVO.getRoomTypePhoto()%></td>
-		<td><%=roomTypePhotoVO.getRoomTypePhotoState()%></td>
+			<td>${roomTypePhotoVO.roomTypePhotoId}</td>
+			<td>${roomTypePhotoVO.roomTypeId}</td>
+			<td>${roomTypePhotoVO.roomTypePhoto}</td>
+			<td>${roomTypePhotoVO.roomTypePhotoState}</td>
+
 
 	</tr>
 </table>

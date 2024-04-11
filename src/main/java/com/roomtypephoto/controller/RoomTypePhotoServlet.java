@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.roomtypephoto.model.RoomTypePhotoJDBCDAO;
 import com.roomtypephoto.model.RoomTypePhotoVO;
 
-@WebServlet("/roomtypephoto/roomtypephoto.do")
+@WebServlet("/roomtypephoto.do")
 @MultipartConfig
 public class RoomTypePhotoServlet extends HttpServlet {
 
@@ -63,7 +63,7 @@ public class RoomTypePhotoServlet extends HttpServlet {
                 // Send the use back to the form, if there were errors
                 if (!errorMsgs.isEmpty()) {
                     RequestDispatcher failureView = req
-                            .getRequestDispatcher("/roomtypephoto/select_page.jsp");
+                            .getRequestDispatcher("select_page.jsp");
                     failureView.forward(req, res);
                     return;//程式中斷
                 }
@@ -77,7 +77,7 @@ public class RoomTypePhotoServlet extends HttpServlet {
                 // Send the use back to the form, if there were errors
                 if (!errorMsgs.isEmpty()) {
                     RequestDispatcher failureView = req
-                            .getRequestDispatcher("/roomtypephoto/select_page.jsp");
+                            .getRequestDispatcher("select_page.jsp");
                     failureView.forward(req, res);
                     return;//程式中斷
                 }
@@ -91,14 +91,14 @@ public class RoomTypePhotoServlet extends HttpServlet {
                 // Send the use back to the form, if there were errors
                 if (!errorMsgs.isEmpty()) {
                     RequestDispatcher failureView = req
-                            .getRequestDispatcher("/roomtypephoto/select_page.jsp");
+                            .getRequestDispatcher("select_page.jsp");
                     failureView.forward(req, res);
                     return;//程式中斷
                 }
                 
                 /***************************3.查詢完成,準備轉交(Send the Success view)*************/
                 req.setAttribute("roomtypephotoVO", roomtypephotoVO); // 資料庫取出的empVO物件,存入req
-                String url = "/roomtypephoto/listOneRoomTypePhoto.jsp";
+                String url = "listOneRoomTypePhoto.jsp";
                 RequestDispatcher successView = req.getRequestDispatcher(url); // 成功轉交 listOneRoomTypePhoto.jsp
                 successView.forward(req, res);
         }
