@@ -282,7 +282,7 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 //		System.out.print(roomTypePhotoVO3.getRoomTypePhoto() + ",");
 //		System.out.print(roomTypePhotoVO3.getRoomTypePhotoState() + ",");
 //		System.out.println("---------------------");
-//
+
 //		// 查詢
 //		List<RoomTypePhotoVO> list = dao.getAll();
 //		for (RoomTypePhotoVO aroom : list) {

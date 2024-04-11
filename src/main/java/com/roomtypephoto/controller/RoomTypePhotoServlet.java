@@ -67,7 +67,7 @@ public class RoomTypePhotoServlet extends HttpServlet {
                     failureView.forward(req, res);
                     return;//程式中斷
                 }
-                
+
                 Integer roomTypePhotoId = null;
                 try {
                 	roomTypePhotoId = Integer.valueOf(str); //把字串轉成integer
@@ -84,7 +84,7 @@ public class RoomTypePhotoServlet extends HttpServlet {
                 
                 /***************************2.開始查詢資料*****************************************/
                 RoomTypePhotoJDBCDAO dao = new RoomTypePhotoJDBCDAO();
-                RoomTypePhotoVO roomtypephotoVO = dao.findByPrimaryKey(Integer.valueOf(req.getParameter("roomTypePhotoId")));
+                RoomTypePhotoVO roomtypephotoVO = dao.findByPrimaryKey(roomTypePhotoId);
                 if (roomtypephotoVO == null) {
                     errorMsgs.add("查無資料");
                 }

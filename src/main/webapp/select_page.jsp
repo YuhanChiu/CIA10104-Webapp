@@ -77,7 +77,7 @@
      <FORM METHOD="post" ACTION="roomtypephoto.do" >
        <b>選擇房型圖片編號:</b>
        <select size="1" name="roomTypePhotoId">
-         <c:forEach var="roomTypePhotoVO" items="${pageScope.dao.all}" > 
+         <c:forEach var="roomTypePhotoVO" items="${dao.all}" > 
           <option value="${roomTypePhotoVO.roomTypePhotoId}">${roomTypePhotoVO.roomTypePhotoId}
          </c:forEach>   
        </select>
@@ -101,18 +101,18 @@
 </ul>
 
 <script>    
-   function fun1(){
-      with(document.form1){
-         if (roomTypePhotoId.value=="") 
-             alert("請輸入房型圖片編號!");
-         else if (isNaN(roomTypePhotoId.value)) 
-             alert("房型圖片編號格式不正確!");
-         else if ((roomTypePhotoId.value < 7001) || (roomTypePhotoId.value > 7999)) 
-             alert("請填寫介於1和10之間的數字!");
-         else
-             submit();
-      }
-   }
+    function fun1(){
+       with(document.form1){
+          if (roomTypePhotoId.value=="") 
+              alert("請輸入房型圖片編號!");
+//          else if (isNaN(roomTypePhotoId.value)) 
+//              alert("房型圖片編號格式不正確!");
+//          else if ((roomTypePhotoId.value < 7001) || (roomTypePhotoId.value > 7999)) 
+//              alert("請填寫介於1和10之間的數字!");
+//          else
+              submit();
+       }
+    }
 </script>
 
 </body>
