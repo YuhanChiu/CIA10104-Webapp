@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%>
 <%@ page import="com.roomtypephoto.model.*"%>
+<%@ page import="com.roomtypephoto.controller.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%-- 此頁暫練習採用 Script 的寫法取值 --%>
 
 <%

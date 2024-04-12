@@ -89,15 +89,21 @@
   <li>
      <FORM METHOD="post" ACTION="roomtypephoto.do" >
        <b>選擇房型編號:</b>
-       <select size="1" name="roomTypePhotoId">
+       <select size="1" name="roomTypeId">
          <c:forEach var="roomTypePhotoVO" items="${dao.all}" > 
-          <option value="${roomTypePhotoVO.roomTypePhotoId}">${roomTypePhotoVO.roomTypeId}
+		<option value="${roomTypePhotoVO.roomTypePhotoId}">${roomTypePhotoVO.roomTypePhotoId}
          </c:forEach>   
        </select>
        <input type="hidden" name="action" value="getOne_For_Display">
        <input type="submit" value="送出">
      </FORM>
   </li>
+</ul>
+
+<h3>房型管理</h3>
+
+<ul>
+  <li><a href='addRoomTypePhoto.jsp'>Add</a> a new RoomTypePhoto.</li>
 </ul>
 
 <script>    

@@ -15,14 +15,10 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 	String userid = "root";
 	String passwd = "pk397rd321";
 
-	private static final String INSERT_STMT = 
-		"INSERT INTO roomTypePhoto (roomTypeId, roomTypePhoto) VALUES (?, ?)";
-	private static final String GET_ALL_STMT = 
-		"SELECT roomTypePhotoId,roomTypeId,roomTypePhoto,roomTypePhotoState FROM roomTypePhoto order by roomTypePhotoId";
-	private static final String GET_ONE_STMT = 
-		"SELECT roomTypePhotoId,roomTypeId,roomTypePhoto,roomTypePhotoState FROM roomTypePhoto where roomTypePhotoId = ?";
-	private static final String UPDATE = 
-		"UPDATE roomTypePhoto set roomTypePhotoId=?,roomTypeId=?, roomTypePhoto=?, roomTypePhotoState=? where roomTypePhotoId = ?";
+	private static final String INSERT_STMT = "INSERT INTO roomTypePhoto (roomTypeId, roomTypePhoto) VALUES (?, ?)";
+	private static final String GET_ALL_STMT = "SELECT roomTypePhotoId,roomTypeId,roomTypePhoto,roomTypePhotoState FROM roomTypePhoto order by roomTypePhotoId";
+	private static final String GET_ONE_STMT = "SELECT roomTypePhotoId,roomTypeId,roomTypePhoto,roomTypePhotoState FROM roomTypePhoto where roomTypePhotoId = ?";
+	private static final String UPDATE = "UPDATE roomTypePhoto set roomTypePhotoId=?,roomTypeId=?, roomTypePhoto=?, roomTypePhotoState=? where roomTypePhotoId = ?";
 
 	@Override
 	public void insert(RoomTypePhotoVO roomTypePhotoVO) {
@@ -36,20 +32,17 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 			con = DriverManager.getConnection(url, userid, passwd);
 			pstmt = con.prepareStatement(INSERT_STMT);
 
-			pstmt.setInt(1,roomTypePhotoVO.getRoomTypeId());
-			pstmt.setBytes(2,roomTypePhotoVO.getRoomTypePhoto());
-
+			pstmt.setInt(1, roomTypePhotoVO.getRoomTypeId());
+			pstmt.setBytes(2, roomTypePhotoVO.getRoomTypePhoto());
 
 			pstmt.executeUpdate();
 
 			// Handle any driver errors
 		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("Couldn't load database driver. "
-					+ e.getMessage());
+			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
@@ -85,18 +78,16 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 			pstmt.setInt(1, roomTypePhotoVO.getRoomTypePhotoId());
 			pstmt.setInt(2, roomTypePhotoVO.getRoomTypeId());
 			pstmt.setBytes(3, roomTypePhotoVO.getRoomTypePhoto());
-			pstmt.setBoolean(4, roomTypePhotoVO.getRoomTypePhotoState ());
+			pstmt.setBoolean(4, roomTypePhotoVO.getRoomTypePhotoState());
 
 			pstmt.executeUpdate();
 
 			// Handle any driver errors
 		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("Couldn't load database driver. "
-					+ e.getMessage());
+			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
@@ -116,8 +107,6 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 		}
 
 	}
-
-	
 
 	@Override
 	public RoomTypePhotoVO findByPrimaryKey(Integer roomTypePhotoId) {
@@ -149,12 +138,10 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 
 			// Handle any driver errors
 		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("Couldn't load database driver. "
-					+ e.getMessage());
+			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
@@ -211,12 +198,10 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 
 			// Handle any driver errors
 		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("Couldn't load database driver. "
-					+ e.getMessage());
+			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
@@ -243,6 +228,7 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 		}
 		return list;
 	}
+
 	public static byte[] getPicByteArray(String path) throws IOException {
 		FileInputStream fis = new FileInputStream(path);
 		byte[] buffer = new byte[fis.available()];
@@ -259,7 +245,6 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 		RoomTypePhotoVO roomTypePhotoVO1 = new RoomTypePhotoVO();
 		roomTypePhotoVO1.setRoomTypeId(1);
 
-		
 		byte[] pic = getPicByteArray("src/main/webapp/images/image1.jpg");
 		roomTypePhotoVO1.setRoomTypePhoto(pic);
 		dao.insert(roomTypePhotoVO1);
@@ -273,8 +258,6 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 //		roomTypePhotoVO2.setRoomTypePhotoState(false);
 //		dao.update(roomTypePhotoVO2);
 
-		
-		
 //		// 查詢
 //		RoomTypePhotoVO roomTypePhotoVO3 = dao.findByPrimaryKey(1);
 //		System.out.print(roomTypePhotoVO3.getRoomTypePhotoId() + ",");
@@ -293,6 +276,4 @@ public class RoomTypePhotoJDBCDAO implements RoomTypePhotoDAO_interface {
 //			System.out.println();
 //		}
 	}
-
-	
 }
